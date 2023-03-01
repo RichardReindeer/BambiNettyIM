@@ -20,7 +20,8 @@ import java.util.UUID;
  * <br><b>本地Session</b><br>
  * 实现Channel User间的相互绑定<br>
  * 使用{@link AttributeKey}来存储当前sessionID ， 在通道内使用SEESION_KEY获取当前session<br>
- * 详细请阅读文章 <a href = "">AboutSession</a>
+ * 详细请阅读文章 <a href = "https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/AboutSession.MD">AboutSession</a><br>
+ *
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -118,22 +119,24 @@ public class LocalSession implements IServerSession {
     /**
      * 将msg写入通道<br>
      *  TODO 进行水位检测，当水位过高时暂停写入，将数据暂存在mq或者其他sql中 , 避免出现数据积压
+     *
      * @param protobufMsg
      */
     @Override
     public synchronized void writeAndFlush(Object protobufMsg) {
-        if(channel.isWritable()){
+        if (channel.isWritable()) {
             channel.writeAndFlush(protobufMsg);
-        }else {
+        } else {
             // 暂存逻辑
             logger.debug("当前通道忙无法写入");
         }
     }
 
-    public void writeAndClose(Object protobufMsg){
+    public void writeAndClose(Object protobufMsg) {
         channel.writeAndFlush(protobufMsg);
         close();
     }
+
     public String getSessionID() {
         return sessionID;
     }

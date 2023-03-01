@@ -68,7 +68,7 @@ public class GateController {
 
         // 获取最佳服务器
         List<BambiNode> workers = loadBalance.getWorkers();
-        back.setImNodeList(workers);
+        back.setbambiNodeList(workers);
         UserDTO userDTO = new UserDTO();
         BeanUtils.copyProperties(userPojo,userDTO);
         back.setUserDTO(userDTO);

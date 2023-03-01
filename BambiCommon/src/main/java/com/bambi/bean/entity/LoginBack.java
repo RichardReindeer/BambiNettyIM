@@ -25,19 +25,19 @@ import java.util.List;
  */
 public class LoginBack {
     private static Logger logger = LoggerFactory.getLogger(LoginBack.class);
-    List<BambiNode> imNodeList;
+    List<BambiNode> bambiNodeList;
 
     private String token;
 
     private UserDTO userDTO;
 
     // getter setter
-    public List<BambiNode> getImNodeList() {
-        return imNodeList;
+    public List<BambiNode> getbambiNodeList() {
+        return bambiNodeList;
     }
 
-    public void setImNodeList(List<BambiNode> imNodeList) {
-        this.imNodeList = imNodeList;
+    public void setbambiNodeList(List<BambiNode> bambiNodeList) {
+        this.bambiNodeList = bambiNodeList;
     }
 
     public String getToken() {

@@ -41,7 +41,7 @@ public class BambiNode implements Comparable<BambiNode>, Serializable {
 
     @Override
     public String toString() {
-        return "ImNode{" +
+        return "bambiNode{" +
                 "id=" + id +
                 ", connectedBalance=" + connectedBalance +
                 ", nettyHost='" + nettyHost + '\'' +
