@@ -10,7 +10,7 @@ import java.util.List;
  * 描述：
  *      <br><b>短链接请求封装类</b><br>
  *      在登录逻辑中客户端使用feign发起远程调用，去调用短链接网关 EZGate模块，模块将服务器节点、用户对象以及对应的令牌封装<br>
- *      然后返回，具体可以看登录逻辑文档
+ *      然后返回，具体可以看登录逻辑文档<a href= "https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/Login.md">LoginMD</a>
  *
  * <pre>
  * HISTORY
