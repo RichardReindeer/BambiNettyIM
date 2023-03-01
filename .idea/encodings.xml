@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/BambiClient/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BambiClient/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BambiCommon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BambiCommon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BambiServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BambiServer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EZGate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/IMGateWay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/chat-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/chat-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/chatServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
