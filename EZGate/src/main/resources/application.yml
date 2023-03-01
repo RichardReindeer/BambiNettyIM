@@ -1,0 +1,4 @@
+zookeeper:
+  connect:
+    url: 127.0.0.1:2181
+    SessionTimeout: 300000
