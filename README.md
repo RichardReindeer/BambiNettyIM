@@ -5,6 +5,8 @@
 
 
 
+内部设计等详情文档请移步--- >
+
 项目架构
 
-![bambiIM.drawio](./image\bambiIM.drawio.png)
+![bambiIM.drawio](./docs/image/bambiIM.drawio.png)
