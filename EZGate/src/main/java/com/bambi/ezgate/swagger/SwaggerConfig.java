@@ -18,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * 描述：
  *      <br><b>Swagger配置类</b><br>
+ *      namespace与SpringBoot不匹配，Swagger的新版本依赖更新后可能会启用
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -29,7 +30,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author Bambi
  * @since 1.0
  */
-@Configuration
+@Deprecated(since = "springBoot3.0")
+// @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
     private static Logger logger = LoggerFactory.getLogger(SwaggerConfig.class);

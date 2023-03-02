@@ -38,7 +38,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/user" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-@Api("User相关测试 Api")
+// @Api("User相关测试 Api")
 public class GateController {
     private static Logger logger = LoggerFactory.getLogger(GateController.class);
 
@@ -52,12 +52,14 @@ public class GateController {
      * @param password
      * @return
      */
-    @ApiOperation("登录逻辑")
+    // @ApiOperation("登录逻辑")
     @RequestMapping(value = "/login/{username}/{password}",method = RequestMethod.GET)
     public String login(
             @PathVariable String username,
             @PathVariable String password
     ){
+        logger.info("login is starting !!!! ");
+
         UserPojo userPojo = new UserPojo();
         userPojo.setUserName(username);
         userPojo.setPassWord(password);

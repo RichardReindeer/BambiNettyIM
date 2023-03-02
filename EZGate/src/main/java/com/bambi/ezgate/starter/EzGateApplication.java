@@ -2,6 +2,7 @@ package com.bambi.ezgate.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Bambi
  * @since 1.0
  */
+@EntityScan(basePackages = "com.bambi.ezgate")
 @ComponentScan("com.bambi.ezgate")
 @SpringBootApplication
 public class EzGateApplication {

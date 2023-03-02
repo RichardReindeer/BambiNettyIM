@@ -2,3 +2,8 @@ zookeeper:
   connect:
     url: 127.0.0.1:2181
     SessionTimeout: 300000
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration
+server:
+  port: 8080
