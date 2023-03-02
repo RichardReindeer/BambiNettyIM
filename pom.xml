@@ -22,7 +22,7 @@
         <juint.version>4.13.2</juint.version>
         <protobuf.version>3.22.0</protobuf.version>
         <guava.version>31.1-jre</guava.version>
-        <fastjson.version>2.0.24</fastjson.version>
+        <fastjson.version>2.0.23</fastjson.version>
         <gson.version>2.10.1</gson.version>
     </properties>
     <packaging>pom</packaging>
@@ -98,6 +98,7 @@
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.5.10</version>
+            <!--<version>3.8.1</version>-->
         </dependency>
 
         <dependency>

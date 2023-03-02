@@ -5,8 +5,17 @@
 
 
 
-内部设计等详情文档请移步--- >
+内部设计等详情文档请移步--- > 
 
 项目架构
 
 ![bambiIM.drawio](./docs/image/bambiIM.drawio.png)
+
+
+
+# FIXED LOG
+
+### 2023/03/02 
+
+- ​		解决SLF4J依赖的版本冲突问题                                  
+- ​		解决创建zk父节点时的json转换问题 
