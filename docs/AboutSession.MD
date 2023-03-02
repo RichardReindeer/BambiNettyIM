@@ -21,7 +21,7 @@
 >
 > ​	对于String类型存储用户会话信息，网上有很多的篇文章来介绍，也有很多为了方便查询将key的名称中间以"."来进行分割。本系统中则是以":" 来进行分割
 
-![userSession](./image\userSession.png)
+![userSession](./image/userSession.png)
 
 ​			具体的存储逻辑服务则放在对应的service类中，这里只展示接口，具体实现请参考github仓库源码
 
@@ -95,7 +95,7 @@ public interface IUserRedis {
 
 ​		因为session的CRUD操作还携带着许多复杂的逻辑，以及跨服的广播以及消息的转发，所以将对Session的操作提取封装在SessionManager中，并使用单例模式，在启动类中注入bean。
 
-​		具体代码过长，为了提升阅读体验，则将代码尽可能的省略，将基础的方法调用逻辑以画图的方式展现在下方。`WorkerRouter`和`ImWorker`类，内容请参考前置文章		[Netty集群的消息接收与转发](http://8.142.7.247:8954/archives/nettyrpc)和[Netty集群的动态命名与注册](http://8.142.7.247:8954/archives/nettymultiregister)
+​		具体代码过长，为了提升阅读体验，则将代码尽可能的省略，将基础的方法调用逻辑以画图的方式展现在下方。`WorkerRouter`和`ImWorker`类，内容请参考前置文章		[Netty集群的消息接收与转发](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/ServerInternalSend.md)和[Netty集群的动态命名与注册](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/NameAndAddress.md)
 
 ![SessionManager](./image/SessionManager.png)
 
