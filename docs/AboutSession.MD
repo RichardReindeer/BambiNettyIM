@@ -1,6 +1,8 @@
 # 实现分布式Session会话存储
 
-​			对于Channel与Session的关系，我已经有一篇文章[Session与Channel容器属性](http://8.142.7.247:8954/archives/netty-yuan-ma-xue-xi-session-yi-ji-channel-de-rong-qi-shu-xing);Session在客户端与服务器端的作用都可以理解为保证用户User与通道Channel之间的关系，可以认为是一个胶水类。
+​			如果你已经了解`Channel中的AttributeKey`那么请往下看;
+
+​			Session在客户端与服务器端的作用都可以理解为保证用户User与通道Channel之间的关系，可以认为是一个胶水类。
 
 ​			但是对于分布式netty服务器端来说，除了简单的正向绑定与反向绑定之外，还需要考虑许多问题
 
@@ -95,7 +97,7 @@ public interface IUserRedis {
 
 ​		因为session的CRUD操作还携带着许多复杂的逻辑，以及跨服的广播以及消息的转发，所以将对Session的操作提取封装在SessionManager中，并使用单例模式，在启动类中注入bean。
 
-​		具体代码过长，为了提升阅读体验，则将代码尽可能的省略，将基础的方法调用逻辑以画图的方式展现在下方。`WorkerRouter`和`ImWorker`类，内容请参考前置文章		[Netty集群的消息接收与转发](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/ServerInternalSend.md)和[Netty集群的动态命名与注册](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/NameAndAddress.md)
+​		具体代码过长，为了提升阅读体验，则将代码尽可能的省略，将基础的方法调用逻辑以画图的方式展现在下方。`WorkerRouter`和`ImWorker`类，内容请参考前置文章		[Netty集群的消息接收与转发](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/%20RouterAndSender.MD)和[Netty集群的动态命名与注册](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/NameAndAddress.md)
 
 ![SessionManager](./image/SessionManager.png)
 
