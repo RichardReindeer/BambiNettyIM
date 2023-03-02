@@ -75,4 +75,4 @@ public void sendNotification(String json){
 
 ​		这段广播消息的代码在`WorkerRouter`中，每个服务器都维护了一个map映射，存储着其他服务器的基本信息。当需要通知的时候，便遍历映射拿到与其他节点建立的转发器`Sender`，将信息放入其中，写入即可。
 
-​		具体逻辑可以启动项目断点跑一下，启动逻辑在仓库的README.md中
+​		具体逻辑可以启动项目断点跑一下，启动逻辑在仓库的[README](https://github.com/RichardReindeer/BambiNettyIM/blob/main/README.md)中
