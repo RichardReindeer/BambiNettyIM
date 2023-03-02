@@ -1,17 +1,37 @@
 # BambiIM
 
+​		这是一个个人编写的框架，框架设计图如下:
+
+## 项目架构:
+
+![bambiIM.drawio](./docs/image/bambiNettyIM.png)
+
+### 依赖版本:
+
+- `SpringBoot:3.0.2`
+- `JDK17`
+- `netty: 4.1.89.Final`
+- `guava: 31.1-jre`
+
+​		需要注意的是,本架构代码的编写初衷是对Netty的系统化学习，且本人电脑性能存在一定瓶颈，所以架构图中非着色部分并没有对应实现，且本项目暂时舍弃了对sql等持久化操作的支持；持久化逻辑请各位自行根据源码编写。
+
+​		源码中架构较为清晰，可以使用mybatis等中间件进行CRUD操作；代码外的中间件集群的接入可能会在后续进行更新。
+
+## 架构设计文档
+
+> ​		内部相关帮助文档请跳转至连接[设计文档](https://github.com/RichardReindeer/BambiNettyIM/tree/main/docs) 中查看
+
+## 项目的配置与启动
+
 - Protobuf由protobuf.exe自动生成，请在common中的proto包中进行本地地址更改，避免生成message时出错
+
 - 记得修改每个模块的zookeeper 以及redis地址
 
+- 请酌情修改服务器以及网关端口，避免产生冲突
 
+- 确保`EzGate`模块正常运行，否则客户端无法登录服务器
 
-内部设计等详情文档请移步--- > 
-
-项目架构
-
-![bambiIM.drawio](./docs/image/bambiIM.drawio.png)
-
-
+  
 
 # FIXED LOG
 
@@ -29,4 +49,4 @@
 
 ## TODO
 
-- 消除客户端循环依赖
+- 客户端代码重构，解决循环依赖问题
