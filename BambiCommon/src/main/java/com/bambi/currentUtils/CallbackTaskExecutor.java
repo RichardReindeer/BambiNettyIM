@@ -48,16 +48,17 @@ public class CallbackTaskExecutor {
                 return execute;
             }
         });
-        Futures.addCallback(submit, new FutureCallback<R>() {
-            @Override
-            public void onSuccess(R result) {
-                callbackTask.onBack(result);
-            }
+        Futures.addCallback(submit,
+                new FutureCallback<R>() {
+                    @Override
+                    public void onSuccess(R result) {
+                        callbackTask.onBack(result);
+                    }
 
-            @Override
-            public void onFailure(Throwable t) {
-                callbackTask.onException(t);
-            }
-        });
+                    @Override
+                    public void onFailure(Throwable t) {
+                        callbackTask.onException(t);
+                    }
+                },listeningPool);
     }
 }

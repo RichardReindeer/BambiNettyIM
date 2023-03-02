@@ -29,7 +29,7 @@ public class ObjectUtil {
 
         //尽量把对象转换成JSON保存更稳妥
 
-        String json = ObjectToJson(obj);
+        String json = ObjectToJsonByGson(obj);
         try {
             return json.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -43,6 +43,7 @@ public class ObjectUtil {
         //尽量把对象转换成JSON保存更稳妥
         try {
             String json = new String(bytes, "UTF-8");
+            logger.info("打印转换后的json字符串 {}",json);
             T t = JsonToObjectByFastJson(json, tClass);
             return t;
         } catch (Exception e) {

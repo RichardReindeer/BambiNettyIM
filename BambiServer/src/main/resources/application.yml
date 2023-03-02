@@ -1,0 +1,22 @@
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration
+  main:
+    web-application-type: none
+  profiles:
+    include: redis
+  output:
+    ansi:
+      enabled: never
+
+zookeeper:
+  connect:
+    url: 127.0.0.1:2181
+    SessionTimeout: 600000
+
+netty:
+  server:
+    port: 8954
+server:
+  port: 7001

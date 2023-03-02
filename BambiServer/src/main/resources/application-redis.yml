@@ -1,0 +1,18 @@
+spring:
+  redis:
+    blockWhenExhausted: true  # 链接耗尽时是否阻塞
+    database: 0  # 指定redis数据库
+    host: 127.0.0.1  # redis主机IP
+    maxIdle: 100   # 最大空闲连接数
+    maxTotal: 2000  # 最大连接数
+    maxWaitMillis: 60000  # 获取链接最大等待毫秒
+    minEvictableIdleTimeMillis: 1800000  # 最小空闲时间
+    numTestsPerEvictionRun: 1024  # 每次释放链接的最大数目
+    password: ${SCAFFOLD_REDIS_PSW:reindeer}  # 密码
+    port: 6379  # redis端口
+    softMinEvictableIdleTimeMillis: 10000  # 链接空闲多久后释放
+    testOnBorrow: false  # 在使用时监测有效性
+    testWhileIdle: true  # 获取链接时检查有效性
+    timeBetweenEvictionRunsMillis: 30000  # 释放链接的扫描间隔（毫秒）
+    connTimeout: 6000  # 链接超时 ms
+    readTimeout: 6000  # 链接超时 ms

@@ -20,6 +20,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import static org.apache.curator.framework.state.ConnectionState.SUSPENDED;
+
 /**
  * 描述：
  * <br><b>服务器消息转发器</b><br>
@@ -91,7 +93,7 @@ public class WorkerRouter {
                 @Override
                 public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception {
                     ChildData childData = event.getData();
-                    if (event.getData() != null && event.getData().getData().length > 0) {
+                    if (event.getData() != null && childData.getData().length > 0) {
                         switch (event.getType()) {
                             case INITIALIZED:
                                 break;

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Component;
  * @since 1.0
  */
 @Component
-public class SpringContextUtil {
+public class SpringContextUtil implements ApplicationContextAware {
     private static Logger logger = LoggerFactory.getLogger(SpringContextUtil.class);
 
     /**

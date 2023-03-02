@@ -127,6 +127,7 @@ public class BambiWorker {
             if (stat == null) {
                 client.create()
                         .creatingParentsIfNeeded()
+                        .withProtection()
                         .withMode(CreateMode.PERSISTENT)
                         .forPath(managePath);
             }
