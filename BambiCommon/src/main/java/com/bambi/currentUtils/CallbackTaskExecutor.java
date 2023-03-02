@@ -10,9 +10,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 描述：
- *      使用guava实现异步回调<br>
- *      在方法{@link CallbackTaskExecutor#add}() 中，接收{@link CallbackTask}<br>
- *      并在内部执行回调逻辑，回调中执行其对应的{@link CallbackTask#onBack(Object)}以及{@link CallbackTask#onException(Throwable)}函数
+ * 使用guava实现异步回调<br>
+ * 在方法{@link CallbackTaskExecutor#add}() 中，接收{@link CallbackTask}<br>
+ * 并在内部执行回调逻辑，回调中执行其对应的{@link CallbackTask#onBack(Object)}以及{@link CallbackTask#onException(Throwable)}函数
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -28,19 +28,22 @@ public class CallbackTaskExecutor {
     private static Logger logger = LoggerFactory.getLogger(CallbackTaskExecutor.class);
 
     static ListeningExecutorService listeningPool = null;
+
     static {
         ThreadPoolExecutor mixedTargetThreadPool = ThreadUtil.getMixedTargetThreadPool();
         listeningPool = MoreExecutors.listeningDecorator(mixedTargetThreadPool);
     }
 
-    private CallbackTaskExecutor(){}
+    private CallbackTaskExecutor() {
+    }
 
     /**
      * 添加对应任务
+     *
      * @param callbackTask
      * @param <R>
      */
-    public static <R> void add(CallbackTask<R> callbackTask){
+    public static <R> void add(CallbackTask<R> callbackTask) {
         ListenableFuture<R> submit = listeningPool.submit(new Callable<R>() {
             @Override
             public R call() throws Exception {
@@ -59,6 +62,6 @@ public class CallbackTaskExecutor {
                     public void onFailure(Throwable t) {
                         callbackTask.onException(t);
                     }
-                },listeningPool);
+                }, listeningPool);
     }
 }

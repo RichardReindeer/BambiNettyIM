@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 /**
  * 描述：
- *      <br><b>消息发送器</b><br>
- *      判断连接状态并发送信息
+ * <br><b>消息发送器</b><br>
+ * 判断连接状态并发送信息
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -27,8 +27,9 @@ import org.springframework.stereotype.Service;
 public class ChatSender extends BaseSender {
     private static Logger logger = LoggerFactory.getLogger(ChatSender.class);
 
-    public void sendChatMessage(String toUserId , String content){
-        if(isConnected()){
+    public void sendChatMessage(String toUserId, String content) {
+        logger.debug("chatSender sendChatMessage is starting !!!!");
+        if (isConnected()) {
             ChatMessage chatMessage = new ChatMessage(getUserDTO());
             chatMessage.setTo(toUserId);
             chatMessage.setContent(content);
@@ -38,7 +39,7 @@ public class ChatSender extends BaseSender {
                     getUserDTO(),
                     getClientSession());
             super.sendMsg(message);
-        }else {
+        } else {
             logger.error("建立连接失败");
             return;
         }
@@ -46,7 +47,7 @@ public class ChatSender extends BaseSender {
 
     @Override
     protected void sendException(Throwable t) {
-        logger.info("聊天信息发送出现异常 {}",t.getMessage());
+        logger.info("聊天信息发送出现异常 {}", t.getMessage());
     }
 
     @Override
@@ -56,6 +57,6 @@ public class ChatSender extends BaseSender {
 
     @Override
     protected void sendSuccessed(ProtoBufMessage.Message message) {
-        logger.info("聊天信息发送成功 , 目标id {}",message.getMessageRequest().getTo());
+        logger.info("聊天信息发送成功 , 目标id {}", message.getMessageRequest().getTo());
     }
 }

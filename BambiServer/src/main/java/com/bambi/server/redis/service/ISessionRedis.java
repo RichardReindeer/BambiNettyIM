@@ -1,9 +1,10 @@
 package com.bambi.server.redis.service;
+
 import com.bambi.server.redis.dao.SessionRedisDao;
 
 /**
  * 描述：
- *<br><b>Session缓存持久化逻辑接口</b>
+ * <br><b>Session缓存持久化逻辑接口</b>
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -19,12 +20,14 @@ public interface ISessionRedis {
 
     /**
      * 保存session到redis缓存中
+     *
      * @param sessionRedisDao
      */
     void saveSession(SessionRedisDao sessionRedisDao);
 
     /**
      * 根据sessionid获取对应session
+     *
      * @param sessionId
      * @return
      */
@@ -32,6 +35,7 @@ public interface ISessionRedis {
 
     /**
      * 移除session
+     *
      * @param sessionId
      */
     void removeSessionById(String sessionId);

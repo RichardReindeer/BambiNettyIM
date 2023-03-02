@@ -189,7 +189,7 @@ public class CommandController {
 
         BambiNode bestNode = null;
         if (!bambiNodeList.isEmpty()) {
-            // 排序时利用    ImNode的比较逻辑
+            // 排序时利用    BambiNode的比较逻辑
             Collections.sort(bambiNodeList);
         }
 

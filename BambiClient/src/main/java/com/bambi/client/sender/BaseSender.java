@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 描述:
- *  <br><b>消息发送基类</b><br>
- *  消息发送是异步自行的；异步相关类{@link CallbackTaskExecutor}<br>
- *  基类提供异步消息发送基本逻辑，如需自定义逻辑，请重写{@link BaseSender#sendMsg(ProtoBufMessage.Message)},或者在外层进行封装
+ * <br><b>消息发送基类</b><br>
+ * 消息发送是异步自行的；异步相关类{@link CallbackTaskExecutor}<br>
+ * 基类提供异步消息发送基本逻辑，如需自定义逻辑，请重写{@link BaseSender#sendMsg(ProtoBufMessage.Message)},或者在外层进行封装
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -33,22 +33,22 @@ public abstract class BaseSender {
     private ClientSession clientSession;
     private UserDTO userDTO;
 
-    public boolean isConnected(){
-        if(clientSession == null){
+    public boolean isConnected() {
+        if (clientSession == null) {
             return false;
         }
         return clientSession.isConnected();
     }
 
-    public void sendMsg(ProtoBufMessage.Message message){
+    public void sendMsg(ProtoBufMessage.Message message) {
 
         CallbackTaskExecutor.add(new CallbackTask<Boolean>() {
             @Override
             public Boolean execute() throws Exception {
-                if(getClientSession() == null){
+                if (getClientSession() == null) {
                     throw new Exception("客户端session 为空");
                 }
-                if(!isConnected()){
+                if (!isConnected()) {
                     logger.error("连接仍未完成");
                     throw new Exception("connect is not ready");
                 }
@@ -59,7 +59,7 @@ public abstract class BaseSender {
 
                     @Override
                     public void operationComplete(Future<? super Void> future) throws Exception {
-                        if(future.isSuccess()){
+                        if (future.isSuccess()) {
                             isSuccess[0] = true;
                             logger.info("操作成功");
                         }
@@ -77,9 +77,9 @@ public abstract class BaseSender {
 
             @Override
             public void onBack(Boolean aBoolean) {
-                if(aBoolean){
+                if (aBoolean) {
                     BaseSender.this.sendSuccessed(message);
-                }else {
+                } else {
                     BaseSender.this.sendFailed(message);
                 }
             }
@@ -93,7 +93,7 @@ public abstract class BaseSender {
     }
 
     protected void sendException(Throwable t) {
-        logger.error("发送消息存在异常 {}",t.getMessage());
+        logger.error("发送消息存在异常 {}", t.getMessage());
     }
 
     protected void sendFailed(ProtoBufMessage.Message message) {

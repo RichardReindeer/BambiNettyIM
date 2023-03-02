@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 /**
  * 描述：
  * <br><b>登录请求逻辑处理类</b><br>
- *   异步使用登录校验器来进行登录验证；如果登录失败则会调用{@link SessionManager#closeSession(ChannelHandlerContext)} 来关闭连接
+ * 异步使用登录校验器来进行登录验证；如果登录失败则会调用{@link SessionManager#closeSession(ChannelHandlerContext)} 来关闭连接
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -36,15 +36,16 @@ public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
 
     @Autowired
     LoginReceiver loginReceiver;
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if(msg == null || !(msg instanceof ProtoBufMessage.Message)){
+        if (msg == null || !(msg instanceof ProtoBufMessage.Message)) {
             super.channelRead(ctx, msg);
             return;
         }
         ProtoBufMessage.Message message = (ProtoBufMessage.Message) msg;
         ProtoBufMessage.HeadType type = message.getType();
-        if(!type.equals(loginReceiver.getHeadType())){
+        if (!type.equals(loginReceiver.getHeadType())) {
             super.channelRead(ctx, msg);
             return;
         }
@@ -53,16 +54,16 @@ public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
         CallbackTaskExecutor.add(new CallbackTask<Boolean>() {
             @Override
             public Boolean execute() throws Exception {
-                return loginReceiver.action(localSession,message);
+                return loginReceiver.action(localSession, message);
             }
 
             @Override
             public void onBack(Boolean o) {
-                if(o){
-                    logger.info("登录成功 {}",localSession.getUserDTO());
-                    ctx.channel().pipeline().addAfter("login","heartBeat",new HeartBeatHandler());
+                if (o) {
+                    logger.info("登录成功 {}", localSession.getUserDTO());
+                    ctx.channel().pipeline().addAfter("login", "heartBeat", new HeartBeatHandler());
                     ctx.channel().pipeline().remove("login");
-                }else {
+                } else {
                     SessionManager.getInstance().closeSession(ctx);
                     logger.error("登录失败");
                 }
@@ -71,7 +72,7 @@ public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
             @Override
             public void onException(Throwable t) {
                 t.printStackTrace();
-                logger.error("登录失败 {}",localSession.getUserDTO());
+                logger.error("登录失败 {}", localSession.getUserDTO());
                 SessionManager.getInstance().closeSession(ctx);
             }
         });

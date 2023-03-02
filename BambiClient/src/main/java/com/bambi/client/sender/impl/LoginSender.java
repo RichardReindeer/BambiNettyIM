@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 /**
  * 描述：
- *      <br><b>登录数据发送器</b><br>
- *      在从网关获取到服务器节点后，将登录请求发送给服务器<br>
- *      具体逻辑参考文档 <a href = "https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/Login.md">Login</a>
+ * <br><b>登录数据发送器</b><br>
+ * 在从网关获取到服务器节点后，将登录请求发送给服务器<br>
+ * 具体逻辑参考文档 <a href = "https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/Login.md">Login</a>
  * <pre>
  * HISTORY
  * ****************************************************************************
@@ -27,13 +27,13 @@ import org.springframework.stereotype.Service;
 public class LoginSender extends BaseSender {
     private static Logger logger = LoggerFactory.getLogger(LoginSender.class);
 
-    public void sendLoginMsg(){
-        if(isConnected()){
+    public void sendLoginMsg() {
+        if (isConnected()) {
             logger.info("连接成功");
             ProtoBufMessage.Message message = LoginMsgBuilder.buildLoginMsg(getUserDTO(), getClientSession());
-            logger.info("发送的登录信息是个啥 {}",message);
+            logger.info("发送的登录信息是个啥 {}", message);
             super.sendMsg(message);
-        }else {
+        } else {
             logger.error("建立连接失败");
             return;
         }
