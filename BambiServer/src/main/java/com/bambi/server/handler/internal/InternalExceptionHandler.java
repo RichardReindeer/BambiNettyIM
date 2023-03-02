@@ -9,7 +9,8 @@ import org.slf4j.LoggerFactory;
 /**
  * 描述：
  *<br><b>转发器异常处理器</b><br>
- * 负责在尾部捕获异常
+ * 在{@link com.bambi.server.rpc.InternalSender} 中使用<br>
+ * 负责在尾部捕获异常<br>
  * <pre>
  * HISTORY
  * ****************************************************************************

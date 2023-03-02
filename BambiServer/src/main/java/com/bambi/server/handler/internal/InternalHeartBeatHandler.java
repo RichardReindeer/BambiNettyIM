@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 描述：
  * <br><b>转发器心跳处理器</b><br>
+ * 在{@link com.bambi.server.rpc.InternalSender} 中使用<br>
  * 避免假死现象定时发送心跳数据包
  * <pre>
  * HISTORY
