@@ -4,7 +4,7 @@
 
 ## 项目架构:
 
-![bambiIM.drawio](./docs/image/bambiNettyIM.png)
+![bambiIM.drawio](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/image/BambiNettyIM.png)
 
 ### 依赖版本:
 
