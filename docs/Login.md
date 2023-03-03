@@ -2,7 +2,7 @@
 
 ![Login](.\image\Login.png)
 
-客户端逻辑核心类：`CommandController`
+​		客户端逻辑核心类：`CommandController`
 
 ​		Server逻辑核心类：`BambiServer`
 
@@ -64,6 +64,6 @@ private void userLoginAndConnecting() {
 
 ​		服务器端的登录请求数据包处理则位于`LoginRequestHander`中；内部会使用异步回调模式处理并发送登录响应包，此处不再赘述；
 
-​		在登录处理完毕之后，利用Handler的热插拔逻辑，添加心跳响应处理器`HeartBeatHandler`并移除登录处理器。(`HeartBeatHandler`意在避免假死现象，详情阅读文章[心跳与空闲检测的设计](http://8.142.7.247:8954/archives/heartbeatcheckandidelhandler))
+​		在登录处理完毕之后，利用Handler的热插拔逻辑，添加心跳响应处理器`HeartBeatHandler`并移除登录处理器。(`HeartBeatHandler`意在避免假死现象，详情阅读文章[心跳与空闲检测的设计](https://github.com/RichardReindeer/BambiNettyIM/blob/main/docs/AboutHeartBeatAndIdel.md))
 
 ​		客户端在接收到登录响应数据包之后也会创建自己的心跳包并移除对应的登陆响应处理器
