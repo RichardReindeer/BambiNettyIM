@@ -3,6 +3,7 @@ package com.bambi.ezgate.starter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -25,7 +26,8 @@ import org.springframework.context.annotation.ComponentScan;
 public class EzGateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EzGateApplication.class, args);
+        ApplicationContext run = SpringApplication.run(EzGateApplication.class, args);
+
     }
 
 }

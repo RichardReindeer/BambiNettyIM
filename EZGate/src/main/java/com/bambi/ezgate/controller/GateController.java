@@ -9,9 +9,11 @@ import com.bambi.utils.JsonUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
+import org.checkerframework.checker.units.qual.A;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +61,6 @@ public class GateController {
             @PathVariable String password
     ){
         logger.info("login is starting !!!! ");
-
         UserPojo userPojo = new UserPojo();
         userPojo.setUserName(username);
         userPojo.setPassWord(password);
